@@ -61,8 +61,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Tile_Parent.cs" />
+    <Compile Include="Assets\Scripts\GameManagerV2.cs" />
+    <Compile Include="Assets\Scripts\TileBaseScript.cs" />
+    <Compile Include="Assets\Scripts\TileContainerScripts.cs" />
+    <Compile Include="Assets\Scripts\V1Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\V1Scripts\Tile_Parent.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Donny/Desktop/GitHubRepos/MechaMatch3RPG/UnityProject/MechaMatch3RPG/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

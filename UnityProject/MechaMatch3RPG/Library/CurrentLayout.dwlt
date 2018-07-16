@@ -45,7 +45,7 @@ MonoBehaviour:
   m_MinSize: {x: 681, y: 342}
   m_MaxSize: {x: 12006, y: 8042}
   vertical: 0
-  controlID: 67
+  controlID: 80
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 950, y: 392}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &7
 MonoBehaviour:
@@ -252,8 +252,8 @@ MonoBehaviour:
     y: 0
     width: 1152
     height: 573
-  m_MinSize: {x: 204, y: 221}
-  m_MaxSize: {x: 4004, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -323,20 +323,22 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Scripts
+    - Assets/Prefabs/Tiles
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Scripts
+  - Assets/Prefabs/Tiles
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Donny\Desktop\GitHubRepos\MechaMatch3RPG\UnityProject\MechaMatch3RPG
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ae090000
-    m_LastClickedID: 2478
-    m_ExpandedIDs: 0000000052090000c809000000ca9a3b
+    m_SelectedIDs: 680a0000da2d0000
+    m_LastClickedID: 11738
+    m_ExpandedIDs: 0000000052090000ae090000c8090000680a0000da2d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -352,7 +354,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 5}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -389,9 +391,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 66090000
+    m_LastClickedInstanceID: 2406
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -480,9 +482,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 76bcf9ff
-    m_LastClickedID: -410506
-    m_ExpandedIDs: 76bcf9ff5a12faff0e13faffe005fbff9406fbff4807fbff3881fbff9e52fcffee52fcff765dfcff9e5dfcff5200fdff1897ffffe2fbffffe4fbffffe6fbffff00000000
+    m_SelectedIDs: 6cebfcff
+    m_LastClickedID: -201876
+    m_ExpandedIDs: 50defdff56defdff5cdefdff62defdff68defdffaa33feffec52feff0038ffff18b0ffffb8b0ffff56b1fffff2b1ffffa0b7ffff66dcffff8adfffffe6fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -501,7 +503,7 @@ MonoBehaviour:
       m_ClientGUIView: {fileID: 4}
     m_SearchString: 
   m_ExpandedScenes:
-  - DemoScene
+  - DemoSceneV2
   m_CurrenRootInstanceID: 0
   m_LockTracker:
     m_IsLocked: 0
@@ -532,14 +534,14 @@ MonoBehaviour:
     height: 552
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 2637.6477237409904
+  lastFramingTime: 1200.6209154553173
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 15.815922, y: -1.6801987, z: 5.091858}
+    m_Target: {x: 0, y: 0, z: 0}
     speed: 2
-    m_Value: {x: 15.815922, y: -1.6801987, z: 5.091858}
+    m_Value: {x: 0, y: 0, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -567,13 +569,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.16768292, y: -0.32808104, z: 0.059296977, w: -0.9277597}
+    m_Target: {x: -0.24051434, y: -0.29508048, z: 0.077017255, w: -0.92149264}
     speed: 2
-    m_Value: {x: -0.16768293, y: -0.32808104, z: 0.05929698, w: -0.9277597}
+    m_Value: {x: -0.24051434, y: -0.29508048, z: 0.077017255, w: -0.92149264}
   m_Size:
-    m_Target: 29.777771
+    m_Target: 22
     speed: 2
-    m_Value: 29.777771
+    m_Value: 22
   m_Ortho:
     m_Target: 0
     speed: 2

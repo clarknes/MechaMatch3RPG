@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1476740343395370}
+  m_IsPrefabAsset: 1
+--- !u!1 &1476740343395370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4708384573275102}
+  - component: {fileID: 114291188540226066}
+  m_Layer: 0
+  m_Name: TileHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4708384573275102
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1476740343395370}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.815922, y: -1.6801987, z: 5.091858}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114291188540226066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1476740343395370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 120f307c2258c7c47af3084a7e7b94b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coordinates: {x: 0, y: 0}
+  tileContained: {fileID: 0}
+  gm: {fileID: 0}
+  tiles:
+  - {fileID: 4193663412335340, guid: 062ef2edc7c39094190449d00ccb34d5, type: 2}
+  - {fileID: 4426549836940692, guid: fce0261d65fbaa045b3e00efa5c5101f, type: 2}
+  - {fileID: 4692594857102198, guid: 55b504308b3cab9419d2c3a50f242790, type: 2}
+  - {fileID: 4933612097524446, guid: 5f687830e6942e2498a6cb7f7105aa92, type: 2}
+  - {fileID: 4823319534250438, guid: d32ee350cb3a67c4594ab909b02af2ee, type: 2}
