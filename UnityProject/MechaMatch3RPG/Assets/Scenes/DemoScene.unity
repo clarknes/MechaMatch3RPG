@@ -456,6 +456,11 @@ Prefab:
       propertyPath: updateGridButton
       value: 
       objectReference: {fileID: 1963081279}
+    - target: {fileID: 114426323784606322, guid: 0b39296fa19346b4f9b2f005db804357,
+        type: 2}
+      propertyPath: isMatchingEnabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b39296fa19346b4f9b2f005db804357, type: 2}
   m_IsPrefabAsset: 0

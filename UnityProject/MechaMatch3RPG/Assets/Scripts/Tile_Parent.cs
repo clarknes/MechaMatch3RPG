@@ -20,6 +20,10 @@ public class Tile_Parent : MonoBehaviour {
     public bool shouldBeDestroyed;
     public Vector2 gridCords;
 
+    //Movement Variables
+    public float tileMoveSpeed;
+    public Vector3 newTargetLocation;
+
     //DebugTools
     public bool shouldOutputDebug;
 
@@ -30,7 +34,7 @@ public class Tile_Parent : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        MoveTowardsNewLocation(newTargetLocation);
 	}
 
     public void CheckIfShouldBeDestroyed()
@@ -123,5 +127,74 @@ public class Tile_Parent : MonoBehaviour {
     {
         shouldBeDestroyed = true;
         gm.tileKillList.Add(transform);
+    }
+
+    public bool isAdjacent()
+    {
+        if(Mathf.Abs(gridCords.x - gm.currentSelectedTile.gridCords.x) == 1 || Mathf.Abs(gridCords.y - gm.currentSelectedTile.gridCords.y) == 1)
+        {
+            if(shouldOutputDebug)
+            {
+                Debug.Log("Positive Match");
+            }
+            return true;
+        }
+
+        return false;
+    }
+
+    private void OnMouseDown()
+    {
+        if(gm.currentSelectedTile == null && gm.isMatchingEnabled)
+        {
+            gm.currentSelectedTile = this;
+        }
+    }
+
+    private void OnMouseOver()
+    {
+        if(gm.currentSelectedTile != this && Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            if(isAdjacent())
+            {
+                gm.currentSelectedTile.newTargetLocation = transform.position;
+                newTargetLocation = gm.currentSelectedTile.transform.position;
+                gm.DisableTileGravity();
+                gm.currentSelectedTile = null;
+                gm.isMatchingEnabled = false;
+                
+            }
+            else
+            {
+                if(shouldOutputDebug)
+                {
+                    Debug.Log("Failed Match");
+                }
+                gm.currentSelectedTile = null;
+            }
+        }
+    }
+
+    public void MoveTowardsNewLocation(Vector3 newLocation)
+    {
+        if(transform.position != newLocation && newLocation != new Vector3(0,0,0))
+        {
+            gameObject.GetComponent<Collider>().enabled = false;
+            gameObject.transform.GetChild(0).GetComponent<Collider>().enabled = false;
+            transform.position = Vector3.Lerp(transform.position, newLocation, Time.deltaTime * tileMoveSpeed);
+
+            if (transform.position == newLocation)
+            {
+                gm.UpdateGrid();
+            }
+        }
+        else
+        {
+            gm.RenameGrid();
+            //gm.EnableTileGravity();
+            newTargetLocation = new Vector3(0, 0, 0);
+            gameObject.GetComponent<Collider>().enabled = true;
+            gameObject.transform.GetChild(0).GetComponent<Collider>().enabled = true;
+        }
     }
 }

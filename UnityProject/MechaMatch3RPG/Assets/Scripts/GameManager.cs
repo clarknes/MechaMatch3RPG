@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour {
 
     public Transform grid;
     public Button updateGridButton;
+    public bool isMatchingEnabled = true;
+    public Tile_Parent currentSelectedTile;
 
     public List<Transform> tileList = new List<Transform>();
 
@@ -29,7 +31,7 @@ void Start () {
 	// Update is called once per frame
 	void Update () {
         updateGridButton.GetComponent<Button>().interactable = UpdateVelocity();
-
+        //isMatchingEnabled = UpdateVelocity();
     }
 
     void GenerateGrid()
@@ -50,6 +52,15 @@ void Start () {
 
                 activeGrid.Add(temp);
             }
+        }
+    }
+
+    public void RenameGrid()
+    {
+        foreach(Transform fooTile in activeGrid)
+        {
+            fooTile.name = (Mathf.Abs(Mathf.Round(fooTile.transform.position.x))) + "-" + (Mathf.Round(fooTile.transform.position.y)+4);
+            fooTile.GetComponent<Tile_Parent>().gridCords = new Vector2(Mathf.Abs(Mathf.Round(fooTile.transform.position.x)), (Mathf.Round(fooTile.transform.position.y) + 4));
         }
     }
 
@@ -159,6 +170,22 @@ void Start () {
         for(int i = 0; i < xValues.Count; i++)
         {
             xValues[i] = 0;
+        }
+    }
+
+    public void DisableTileGravity()
+    {
+        foreach (Transform fooTrans in activeGrid)
+        {
+            fooTrans.GetComponent<Rigidbody>().useGravity = false;
+        }
+    }
+
+    public void EnableTileGravity()
+    {
+        foreach (Transform fooTrans in activeGrid)
+        {
+            fooTrans.GetComponent<Rigidbody>().useGravity = true;
         }
     }
 }

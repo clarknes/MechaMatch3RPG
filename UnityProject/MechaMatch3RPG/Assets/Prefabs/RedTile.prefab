@@ -68,7 +68,7 @@ Transform:
   m_GameObject: {fileID: 1744199634905872}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.83, y: 2.59, z: 0}
-  m_LocalScale: {x: 0.98, y: 0.98, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4582330984226608}
   m_Father: {fileID: 0}
@@ -170,4 +170,6 @@ MonoBehaviour:
   m_tileColor: 3
   shouldBeDestroyed: 0
   gridCords: {x: 0, y: 0}
+  tileMoveSpeed: 5
+  newTargetLocation: {x: 0, y: 0, z: 0}
   shouldOutputDebug: 0
