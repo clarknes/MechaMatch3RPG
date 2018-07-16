@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
     public Button updateGridButton;
     public bool isMatchingEnabled = true;
     public Tile_Parent currentSelectedTile;
+    public bool tilesFalling;
 
     public List<Transform> tileList = new List<Transform>();
 
@@ -31,7 +32,13 @@ void Start () {
 	// Update is called once per frame
 	void Update () {
         updateGridButton.GetComponent<Button>().interactable = UpdateVelocity();
+        tilesFalling = !UpdateVelocity();
         //isMatchingEnabled = UpdateVelocity();
+
+        if(!tilesFalling && !isMatchingEnabled)
+        {
+            UpdateGrid();
+        }
     }
 
     void GenerateGrid()
@@ -71,10 +78,17 @@ void Start () {
             fooTrans.GetComponent<Tile_Parent>().CheckIfShouldBeDestroyed();
         }
 
-        foreach(Transform fooTrans in tileKillList)
+        if (tileKillList.Count != 0)
         {
-            activeGrid.Remove(fooTrans);
-            Destroy(fooTrans.gameObject);
+            foreach (Transform fooTrans in tileKillList)
+            {
+                activeGrid.Remove(fooTrans);
+                Destroy(fooTrans.gameObject);
+            }
+        }
+        else
+        {
+            isMatchingEnabled = true;
         }
 
         tileKillList.Clear();
@@ -153,7 +167,7 @@ void Start () {
         {
             for(int j = 8; j >= xValues[i]; j--)
             {
-                int whichGem = Random.Range(0, 2);
+                int whichGem = Random.Range(0, 5);
 
                 Transform temp = Instantiate(tileList[whichGem], new Vector3(i, j, 0), tileList[whichGem].rotation);
 

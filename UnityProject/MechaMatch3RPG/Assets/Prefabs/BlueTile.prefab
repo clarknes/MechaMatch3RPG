@@ -170,6 +170,6 @@ MonoBehaviour:
   m_tileColor: 0
   shouldBeDestroyed: 0
   gridCords: {x: 0, y: 0}
-  tileMoveSpeed: 0
+  tileMoveSpeed: 5
   newTargetLocation: {x: 0, y: 0, z: 0}
   shouldOutputDebug: 0

@@ -183,8 +183,22 @@ public class Tile_Parent : MonoBehaviour {
             gameObject.transform.GetChild(0).GetComponent<Collider>().enabled = false;
             transform.position = Vector3.Lerp(transform.position, newLocation, Time.deltaTime * tileMoveSpeed);
 
-            if (transform.position == newLocation)
+            bool noneMoving = true;
+
+            foreach(Transform fooTrans in gm.activeGrid)
             {
+                if(fooTrans.transform.position != fooTrans.GetComponent<Tile_Parent>().newTargetLocation|| fooTrans.GetComponent<Tile_Parent>().newTargetLocation == new Vector3(0,0,0))
+                {
+                    noneMoving = false;
+                }
+            }
+
+            if (noneMoving)
+            {
+                if(shouldOutputDebug)
+                {
+                    Debug.Log("None Moving: Attempt Destruction");
+                }
                 gm.UpdateGrid();
             }
         }
