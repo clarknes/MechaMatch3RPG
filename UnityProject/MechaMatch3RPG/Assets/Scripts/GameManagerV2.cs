@@ -12,8 +12,9 @@ public class GameManagerV2 : MonoBehaviour {
     public int amountOfColumns, amountOfRows;
     public Transform grid;
 
-    //Tile Destruction variables
+    //Tile Destruction and Matching variables
     public bool cleanupTime;
+    public Transform tileCurrentlySelected;
 
     public enum TileColors
     {
@@ -33,12 +34,15 @@ public class GameManagerV2 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 		if(cleanupTime && AllContainersHaveATile())
         {
             if (!CheckIfTilesMoving())
             {
                 CleanupStep();
+            }
+            else
+            {
+                Debug.Log("AreTilesStillMoving");
             }
         }
 	}
@@ -102,6 +106,7 @@ public class GameManagerV2 : MonoBehaviour {
             {
                 if(fooTran.GetComponent<TileContainerScripts>().tileContained.transform.position != fooTran.transform.position)
                 {
+                    Debug.Log(fooTran.name);
                     return true;
                 }
             }

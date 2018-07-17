@@ -6,12 +6,13 @@ public class TileBaseScript : MonoBehaviour {
 
     [SerializeField]
     float TileMoveSpeed = 5.0f;
-    TileContainerScripts currentStorageTile;
+    public TileContainerScripts currentStorageTile;
     public GameManagerV2.TileColors currentColor;
+    public GameManagerV2 gm;
 
 	// Use this for initialization
 	void Start () {
-
+        gm = FindObjectOfType<GameManagerV2>();
 	}
 	
 	// Update is called once per frame
@@ -27,7 +28,80 @@ public class TileBaseScript : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        currentStorageTile.tileContained = null;
-        Destroy(gameObject);
+        if (gm.cleanupTime == false)
+        {
+            if (currentStorageTile.gm.tileCurrentlySelected == null)
+            {
+                Debug.Log("MouseDown");
+                currentStorageTile.gm.tileCurrentlySelected = transform;
+            }
+            else
+            {
+                currentStorageTile.gm.tileCurrentlySelected = null;
+            }
+        }
+    }
+
+    private void OnMouseOver()
+    {
+        if (gm.cleanupTime == false)
+        {
+            if (gm.tileCurrentlySelected != gameObject.transform && Input.GetKeyUp(KeyCode.Mouse0))
+            {
+                Debug.Log(gameObject.name);
+
+                if (gm.tileCurrentlySelected.GetComponent<TileBaseScript>().currentStorageTile.GetComponent<TileContainerScripts>() != null)
+                {
+                    if (IsTileAdjacent(gm.tileCurrentlySelected.GetComponent<TileBaseScript>().currentStorageTile.GetComponent<TileContainerScripts>()))
+                    {
+                        SwapTile(gm.tileCurrentlySelected.GetComponent<TileBaseScript>().currentStorageTile.GetComponent<TileContainerScripts>());
+                        gm.tileCurrentlySelected = null;
+                        Debug.Log("Valid Match");
+                    }
+                    else
+                    {
+                        gm.tileCurrentlySelected = null;
+                        Debug.Log("Invalid Match");
+                    }
+                }
+                else
+                {
+                    gm.tileCurrentlySelected = null;
+                }
+            }
+        }
+    }
+
+    public bool IsTileAdjacent(TileContainerScripts otherTile)
+    {
+        //CheckLeft
+        if(otherTile.coordinates.x > 0 && otherTile.coordinates.x < 8 && otherTile.coordinates.y < 8 && otherTile.coordinates.y > 0)
+        {
+            if(Mathf.Abs(otherTile.coordinates.x - currentStorageTile.coordinates.x) == 1)
+            {
+                return true;
+            }
+            else if(Mathf.Abs(otherTile.coordinates.y - currentStorageTile.coordinates.y) == 1)
+            {
+                return true;
+            }
+
+            Debug.Log(Mathf.Abs(otherTile.coordinates.x - currentStorageTile.coordinates.x));
+            Debug.Log(otherTile.name + " " + currentStorageTile.name);
+        }
+
+        return false;
+    }
+
+    public void SwapTile(TileContainerScripts otherTile)
+    {
+        gm.tileCurrentlySelected.transform.parent = currentStorageTile.transform;
+        gm.tileCurrentlySelected.GetComponent<TileBaseScript>().currentStorageTile = currentStorageTile.GetComponent<TileContainerScripts>();
+        currentStorageTile.GetComponent<TileContainerScripts>().tileContained = gm.tileCurrentlySelected;
+
+        transform.parent = otherTile.transform;
+        currentStorageTile = otherTile;
+        currentStorageTile.tileContained = transform;
+        gm.cleanupTime = true;
     }
 }
