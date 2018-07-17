@@ -288,6 +288,7 @@ MonoBehaviour:
   amountOfColumns: 9
   amountOfRows: 9
   grid: {fileID: 990772557}
+  cleanupTime: 1
 --- !u!4 &990772557
 Transform:
   m_ObjectHideFlags: 0

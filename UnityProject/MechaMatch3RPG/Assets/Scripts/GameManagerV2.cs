@@ -12,6 +12,9 @@ public class GameManagerV2 : MonoBehaviour {
     public int amountOfColumns, amountOfRows;
     public Transform grid;
 
+    //Tile Destruction variables
+    public bool cleanupTime;
+
     public enum TileColors
     {
         Blue,
@@ -30,7 +33,14 @@ public class GameManagerV2 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+		if(cleanupTime && AllContainersHaveATile())
+        {
+            if (!CheckIfTilesMoving())
+            {
+                CleanupStep();
+            }
+        }
 	}
 
     void InstantiateGrid()
@@ -57,5 +67,62 @@ public class GameManagerV2 : MonoBehaviour {
                 gridStorageObjects[cols].Add(temp);
             }
         }
+    }
+
+    void CleanupStep()
+    {
+        cleanupTime = false;
+        Debug.Log("Cleaned Up");
+        for (int i = 0; i < gridStorageObjects.Count; i++)
+        {
+            foreach (Transform fooTrans in gridStorageObjects[i])
+            {
+                fooTrans.GetComponent<TileContainerScripts>().CheckIfMatch();
+                if(fooTrans.GetComponent<TileContainerScripts>().isMatched)
+                {
+                    cleanupTime = true;
+                }
+            }
+        }
+
+        for (int i = 0; i < gridStorageObjects.Count; i++)
+        {
+            foreach (Transform fooTrans in gridStorageObjects[i])
+            {
+                fooTrans.GetComponent<TileContainerScripts>().PersonalCleanup();
+            }
+        }
+    }
+
+    bool CheckIfTilesMoving()
+    {
+        for (int x = 0; x < gridStorageObjects.Count; x++)
+        {
+            foreach (Transform fooTran in gridStorageObjects[x])
+            {
+                if(fooTran.GetComponent<TileContainerScripts>().tileContained.transform.position != fooTran.transform.position)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    bool AllContainersHaveATile()
+    {
+        for (int x = 0; x < gridStorageObjects.Count; x++)
+        {
+            foreach (Transform fooTran in gridStorageObjects[x])
+            {
+                if (fooTran.GetComponent<TileContainerScripts>().tileContained == null)
+                {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 }

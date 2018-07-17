@@ -60,3 +60,6 @@ MonoBehaviour:
   - {fileID: 4692594857102198, guid: 55b504308b3cab9419d2c3a50f242790, type: 2}
   - {fileID: 4933612097524446, guid: 5f687830e6942e2498a6cb7f7105aa92, type: 2}
   - {fileID: 4823319534250438, guid: d32ee350cb3a67c4594ab909b02af2ee, type: 2}
+  horizontalMatch: 1
+  verticalMatch: 1
+  isMatched: 0
