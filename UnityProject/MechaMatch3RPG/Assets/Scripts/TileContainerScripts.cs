@@ -13,6 +13,8 @@ public class TileContainerScripts : MonoBehaviour {
     public int horizontalMatch = 1, verticalMatch = 1;
     public bool isMatched;
 
+    public bool shouldOutputDebug;
+
     bool temp = true;
 
     // Use this for initialization
@@ -51,6 +53,7 @@ public class TileContainerScripts : MonoBehaviour {
         }
         else
         {
+            Debug.Log(name);
             CreateANewTile();
         }
     }
@@ -63,13 +66,16 @@ public class TileContainerScripts : MonoBehaviour {
 
         temp.parent = transform;
 
-        tileContained = transform.GetChild(0);
+        tileContained = temp;
     }
 
     public void CheckIfMatch()
     {
         GameManagerV2.TileColors colorToMatch = tileContained.GetComponent<TileBaseScript>().currentColor;
-
+        if (shouldOutputDebug)
+        {
+            Debug.Log(colorToMatch);
+        }
         //Checks Left
         if(coordinates.x > 0)
         {
@@ -153,6 +159,32 @@ public class TileContainerScripts : MonoBehaviour {
     {
         if(isMatched)
         {
+            if(tileContained.GetComponent<TileBaseScript>().currentColor == GameManagerV2.TileColors.Blue)
+            {
+                gm.levelScoreTotalList[0]++;
+                gm.cascadeScoreList[0]++;
+            }
+            else if (tileContained.GetComponent<TileBaseScript>().currentColor == GameManagerV2.TileColors.Purple)
+            {
+                gm.levelScoreTotalList[1]++;
+                gm.cascadeScoreList[1]++;
+            }
+            else if (tileContained.GetComponent<TileBaseScript>().currentColor == GameManagerV2.TileColors.Green)
+            {
+                gm.levelScoreTotalList[2]++;
+                gm.cascadeScoreList[2]++;
+            }
+            else if (tileContained.GetComponent<TileBaseScript>().currentColor == GameManagerV2.TileColors.Yellow)
+            {
+                gm.levelScoreTotalList[3]++;
+                gm.cascadeScoreList[3]++;
+            }
+            else if (tileContained.GetComponent<TileBaseScript>().currentColor == GameManagerV2.TileColors.Red)
+            {
+                gm.levelScoreTotalList[4]++;
+                gm.cascadeScoreList[4]++;
+            }
+
             Transform temp = tileContained;
             tileContained = null;
             isMatched = false;

@@ -323,20 +323,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Tiles
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/Tiles
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Donny\Desktop\GitHubRepos\MechaMatch3RPG\UnityProject\MechaMatch3RPG
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: b0090000
-    m_LastClickedID: 2480
-    m_ExpandedIDs: 0000000058090000b0090000b8090000d2090000740a0000
+    m_SelectedIDs: 740a0000
+    m_LastClickedID: 2676
+    m_ExpandedIDs: 0000000058090000b0090000b8090000d2090000740a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -389,8 +389,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 4e0c0000
-    m_LastClickedInstanceID: 3150
+    m_SelectedInstanceIDs: ae080000
+    m_LastClickedInstanceID: 2222
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000be0b0000940b000060090000640900006c090000
     m_RenameOverlay:
@@ -480,9 +480,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: e6fbffff00000000
+    m_SelectedIDs: 4e0c0000
+    m_LastClickedID: 3150
+    m_ExpandedIDs: 62e5faff6ce5faff6ee5faff1a34fbff3a58fbff1c6ffbff246ffbff2a6ffbffd6b3fbff34bdfbff4ccafbff4073fcffb00dfdff6211fdff2404feff4a5affff9461ffff9291ffff0a9cffffa09dffffc09efffff69effff40b8ffffa2c3ffff32c4ffff5ac7ffff72c7ffffa8c7ffff5ee1ffffe0f1ffffe6fbffff000000004e0c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -532,14 +532,14 @@ MonoBehaviour:
     height: 552
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 1200.6209154553173
+  lastFramingTime: 883.3394271450022
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0, y: 0, z: 0}
+    m_Target: {x: -2.6349409, y: 4.9319715, z: 12.309999}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0}
+    m_Value: {x: -2.6349409, y: 4.9319715, z: 12.309999}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -567,13 +567,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.06462547, y: -0.06521875, z: 0.004232424, w: -0.9957677}
+    m_Target: {x: 0.031181773, y: -0.015894985, z: -0.00049613573, w: -0.9993931}
     speed: 2
-    m_Value: {x: -0.06462547, y: -0.06521875, z: 0.004232424, w: -0.9957677}
+    m_Value: {x: 0.03118159, y: -0.015894892, z: -0.0004961328, w: -0.99938726}
   m_Size:
-    m_Target: 22
+    m_Target: 41.572918
     speed: 2
-    m_Value: 22
+    m_Value: 41.572918
   m_Ortho:
     m_Target: 0
     speed: 2

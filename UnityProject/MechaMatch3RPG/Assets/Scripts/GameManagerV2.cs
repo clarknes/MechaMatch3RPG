@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManagerV2 : MonoBehaviour {
 
@@ -15,6 +16,11 @@ public class GameManagerV2 : MonoBehaviour {
     //Tile Destruction and Matching variables
     public bool cleanupTime;
     public Transform tileCurrentlySelected;
+    public CanvasGroup cascadeScoreboard;
+    public List<Text> cascadeList = new List<Text>();
+    public List<Text> levelTotalList = new List<Text>();
+    public List<int> cascadeScoreList = new List<int>();
+    public List<int> levelScoreTotalList = new List<int>();
 
     public enum TileColors
     {
@@ -36,6 +42,7 @@ public class GameManagerV2 : MonoBehaviour {
 	void Update () {
 		if(cleanupTime && AllContainersHaveATile())
         {
+            cascadeScoreboard.alpha = 1;
             if (!CheckIfTilesMoving())
             {
                 CleanupStep();
@@ -45,6 +52,16 @@ public class GameManagerV2 : MonoBehaviour {
                 Debug.Log("AreTilesStillMoving");
             }
         }
+        else if(!cleanupTime)
+        {
+            for (int i = 0; i < cascadeScoreList.Count; i++)
+            {
+                cascadeScoreList[i] = 0;
+            }
+            cascadeScoreboard.alpha = 0;
+        }
+
+        UpdateScoreboard();
 	}
 
     void InstantiateGrid()
@@ -106,7 +123,6 @@ public class GameManagerV2 : MonoBehaviour {
             {
                 if(fooTran.GetComponent<TileContainerScripts>().tileContained.transform.position != fooTran.transform.position)
                 {
-                    Debug.Log(fooTran.name);
                     return true;
                 }
             }
@@ -129,5 +145,14 @@ public class GameManagerV2 : MonoBehaviour {
         }
 
         return true;
+    }
+
+    public void UpdateScoreboard()
+    {
+        for(int i = 0; i < levelTotalList.Count; i++)
+        {
+            levelTotalList[i].text = levelScoreTotalList[i].ToString();
+            cascadeList[i].text = cascadeScoreList[i].ToString();
+        }
     }
 }

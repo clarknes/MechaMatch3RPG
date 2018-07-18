@@ -32,7 +32,6 @@ public class TileBaseScript : MonoBehaviour {
         {
             if (currentStorageTile.gm.tileCurrentlySelected == null)
             {
-                Debug.Log("MouseDown");
                 currentStorageTile.gm.tileCurrentlySelected = transform;
             }
             else
@@ -48,20 +47,16 @@ public class TileBaseScript : MonoBehaviour {
         {
             if (gm.tileCurrentlySelected != gameObject.transform && Input.GetKeyUp(KeyCode.Mouse0))
             {
-                Debug.Log(gameObject.name);
-
                 if (gm.tileCurrentlySelected.GetComponent<TileBaseScript>().currentStorageTile.GetComponent<TileContainerScripts>() != null)
                 {
                     if (IsTileAdjacent(gm.tileCurrentlySelected.GetComponent<TileBaseScript>().currentStorageTile.GetComponent<TileContainerScripts>()))
                     {
                         SwapTile(gm.tileCurrentlySelected.GetComponent<TileBaseScript>().currentStorageTile.GetComponent<TileContainerScripts>());
                         gm.tileCurrentlySelected = null;
-                        Debug.Log("Valid Match");
                     }
                     else
                     {
                         gm.tileCurrentlySelected = null;
-                        Debug.Log("Invalid Match");
                     }
                 }
                 else
@@ -75,7 +70,7 @@ public class TileBaseScript : MonoBehaviour {
     public bool IsTileAdjacent(TileContainerScripts otherTile)
     {
         //CheckLeft
-        if(otherTile.coordinates.x > 0 && otherTile.coordinates.x < 8 && otherTile.coordinates.y < 8 && otherTile.coordinates.y > 0)
+        if(otherTile.coordinates.x > -1 && otherTile.coordinates.x < 9 && otherTile.coordinates.y < 9 && otherTile.coordinates.y > -1)
         {
             if(Mathf.Abs(otherTile.coordinates.x - currentStorageTile.coordinates.x) == 1)
             {
