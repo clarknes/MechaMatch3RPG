@@ -65,6 +65,11 @@
     <Compile Include="Assets\Scripts\Combat\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\Combat\TileBaseScript.cs" />
     <Compile Include="Assets\Scripts\Combat\TileContainerScripts.cs" />
+    <Compile Include="Assets\Scripts\Events\EventManager.cs" />
+    <Compile Include="Assets\Scripts\Events\EventParent.cs" />
+    <Compile Include="Assets\Scripts\Events\EventTriggers\GenericEvent.cs" />
+    <Compile Include="Assets\Scripts\Events\EventTriggers\PhaseShiftEvents\GenericEndPhaseEvent.cs" />
+    <Compile Include="Assets\Scripts\Events\EventTriggers\PlayerAttackTriggers\GenericAttackEvent.cs" />
     <Compile Include="Assets\Scripts\LoadoutManagementScripts\LoadoutManager.cs" />
     <Compile Include="Assets\Scripts\LoadoutManagementScripts\SceneNavigation.cs" />
     <Compile Include="Assets\Scripts\LoadoutManagementScripts\ShipData.cs" />

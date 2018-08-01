@@ -14,6 +14,7 @@ public class GameManagerV2 : MonoBehaviour {
     public Transform grid;
 
     //Tile Destruction and Matching variables
+    public EventManager em;
     public bool cleanupTime;
     public Transform tileCurrentlySelected;
     public CanvasGroup cascadeScoreboard;
@@ -28,6 +29,9 @@ public class GameManagerV2 : MonoBehaviour {
     public CanvasGroup statOverlay;
     //public Vector3 offPosition;
     //public Vector3 onPosition;
+
+    //DeleteLater
+    public EventParent attackEvent;
 
     public enum TileColors
     {
@@ -144,26 +148,9 @@ public class GameManagerV2 : MonoBehaviour {
 
         if(!cleanupTime)
         {
-            if(player2.shield > 0 && player2.shield <= player1.charge)
-            {
-                player1.charge -= player2.shield;
-                player2.shield = 0;
-                player2.health -= player1.charge;
-                player1.charge = 0;
-                player1.UpdateCharge();
-            }
-            else if(player2.shield > 0)
-            {
-                player2.shield -= player1.charge;
-                player1.charge = 0;
-                player1.UpdateCharge();
-            }
-            else
-            {
-                player2.health -= player1.charge;
-                player1.charge = 0;
-                player1.UpdateCharge();
-            }
+            Debug.Log("EventPhaseShouldHappen");
+            attackEvent.AddEventToStack(em.attackPhase);
+            em.ResolveAttackPhase();
         }
     }
 
